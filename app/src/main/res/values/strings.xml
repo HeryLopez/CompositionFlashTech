@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Questions</string>
+    <string name="dev_questions">Scrum DEV</string>
+    <string name="friendship_questions">Friendship</string>
+</resources>
