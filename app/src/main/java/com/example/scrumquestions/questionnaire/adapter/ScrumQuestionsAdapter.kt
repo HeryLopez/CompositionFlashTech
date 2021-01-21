@@ -1,4 +1,4 @@
-package com.example.scrumquestions.questionnaire
+package com.example.scrumquestions.questionnaire.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -29,7 +29,9 @@ class ScrumQuestionsAdapter(private var values: List<ScrumQuestion>) :
         with(holder.answers) {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
             adapter =
-                ScrumAnswersAdapter(item.answers)
+                ScrumAnswersAdapter(
+                    item.answers
+                )
         }
 
         if(item.alreadyValidated){

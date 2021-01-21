@@ -1,15 +1,27 @@
-package com.example.scrumquestions.questionnaire.source
+package com.example.scrumquestions.questionnaire
 
-import android.content.Context
-
-import java.util.*
+import android.os.Bundle
+import android.view.View
 import com.example.scrumquestions.model.ScrumAnswer
 import com.example.scrumquestions.model.ScrumQuestion
+import java.util.ArrayList
 
-class InCodeBehavior :
-    QuestionsSourceBehavior {
+class FriendshipQuestionsFragment : AbstractQuestionsFragment() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun getQuestions(context: Context): MutableList<ScrumQuestion> {
+        localAdapter.updateList(
+            getFriendshipQuestions()
+        )
+        localAdapter.notifyDataSetChanged()
+    }
+
+    /**
+     * Problems
+     * - Code duplication if another class needs the same behavior
+     * - If it is used as a base class for other children, it complicates the understanding of the code (Various levels of inheritance)
+     */
+    fun getFriendshipQuestions2(): MutableList<ScrumQuestion> {
         val items: MutableList<ScrumQuestion> = ArrayList()
 
         val answer1 = listOf(ScrumAnswer("Y", "Me plaindre" ), ScrumAnswer("N", "Exercice" ))
