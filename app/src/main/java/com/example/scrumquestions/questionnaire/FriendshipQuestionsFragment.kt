@@ -9,8 +9,8 @@ class FriendshipQuestionsFragment : AbstractQuestionsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setSourceBehavior(InCodeBehavior())
-        localAdapter.updateList(getQuestionsData())
+        questionsSourceBehavior = InCodeBehavior()
+        localAdapter.updateList(questionsSourceBehavior.getQuestions(requireContext()))
         localAdapter.notifyDataSetChanged()
     }
 }

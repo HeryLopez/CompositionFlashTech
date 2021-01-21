@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.scrumquestions.R
-import com.example.scrumquestions.questionnaire.adapter.ScrumQuestionsAdapter
+import com.example.scrumquestions.questionnaire.adapter.QuestionsAdapter
 import com.example.scrumquestions.questionnaire.source.QuestionsSourceBehavior
 
 abstract class AbstractQuestionsFragment : Fragment(R.layout.fragment_scrum_dev_questions) {
@@ -15,7 +15,7 @@ abstract class AbstractQuestionsFragment : Fragment(R.layout.fragment_scrum_dev_
     lateinit var questionsSourceBehavior: QuestionsSourceBehavior
 
     val localAdapter =
-        ScrumQuestionsAdapter(
+        QuestionsAdapter(
             listOf()
         )
 
@@ -33,13 +33,5 @@ abstract class AbstractQuestionsFragment : Fragment(R.layout.fragment_scrum_dev_
                 ))
             }
         }
-    }
-
-    fun setSourceBehavior(questionsSourceBehavior : QuestionsSourceBehavior){
-        this.questionsSourceBehavior = questionsSourceBehavior
-    }
-
-    fun getQuestionsData(){
-        questionsSourceBehavior.getQuestions(requireContext())
     }
 }

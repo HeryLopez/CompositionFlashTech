@@ -10,8 +10,8 @@ import androidx.annotation.ColorRes
 import com.example.scrumquestions.R
 import com.example.scrumquestions.model.ScrumAnswer
 
-class ScrumAnswersAdapter(private val values: List<ScrumAnswer>) :
-    RecyclerView.Adapter<ScrumAnswersAdapter.ViewHolder>() {
+class AnswersAdapter(private val values: List<ScrumAnswer>) :
+    RecyclerView.Adapter<AnswersAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)

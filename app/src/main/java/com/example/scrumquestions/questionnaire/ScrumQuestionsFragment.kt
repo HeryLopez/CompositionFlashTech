@@ -9,8 +9,8 @@ class ScrumQuestionsFragment : AbstractQuestionsFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setSourceBehavior(JsonBehavior())
-        localAdapter.updateList(getQuestionsData())
+        questionsSourceBehavior = JsonBehavior()
+        localAdapter.updateList(questionsSourceBehavior.getQuestions(requireContext()))
         localAdapter.notifyDataSetChanged()
     }
 }
