@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         sharedPref = this.getSharedPreferences(
-            MyApplication.sharePreferente, Context.MODE_PRIVATE)
+            MyApplication.sharedPreference, Context.MODE_PRIVATE)
 
         if (savedInstanceState == null) {
             supportFragmentManager.commit {

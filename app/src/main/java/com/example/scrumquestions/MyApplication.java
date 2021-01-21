@@ -8,16 +8,12 @@ import com.facebook.flipper.core.FlipperClient;
 import com.facebook.flipper.plugins.inspector.DescriptorMapping;
 import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin;
 import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin;
-import com.facebook.flipper.plugins.sandbox.SandboxFlipperPlugin;
-import com.facebook.flipper.plugins.sandbox.SandboxFlipperPluginStrategy;
 import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin;
 import com.facebook.soloader.SoLoader;
-import com.facebook.flipper.plugins.inspector.DescriptorMapping;
-import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin;
 
 public class MyApplication extends Application {
 
-  public static final String sharePreferente = "my_shared_preference_file";
+  public static final String sharedPreference = "my_shared_preference_file";
 
   @Override
   public void onCreate() {
@@ -31,9 +27,9 @@ public class MyApplication extends Application {
       client.addPlugin(new InspectorFlipperPlugin(this, DescriptorMapping.withDefaults()));
       // Plugin Navigation
       client.addPlugin(NavigationFlipperPlugin.getInstance());
-
+      // Plugin Shared Preferences
       client.addPlugin(
-              new SharedPreferencesFlipperPlugin(this, sharePreferente));
+              new SharedPreferencesFlipperPlugin(this, sharedPreference));
 
       client.start();
     }
