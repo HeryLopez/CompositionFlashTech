@@ -50,6 +50,13 @@ dependencies {
     // Kotlin
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
+
+    debugImplementation 'com.facebook.flipper:flipper:0.72.0'
+    debugImplementation 'com.facebook.soloader:soloader:0.9.0'
+
+    releaseImplementation 'com.facebook.flipper:flipper-noop:0.72.0'
+
+
     implementation 'com.google.code.gson:gson:2.8.5'
 
     testImplementation 'junit:junit:4.12'
