@@ -1,4 +1,4 @@
-package com.example.scrumquestions.questionnaire
+package com.example.scrumquestions.questionnaire.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater

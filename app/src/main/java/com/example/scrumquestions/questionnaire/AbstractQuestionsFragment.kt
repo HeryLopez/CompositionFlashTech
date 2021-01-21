@@ -3,20 +3,21 @@ package com.example.scrumquestions.questionnaire
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.scrumquestions.R
+import com.example.scrumquestions.questionnaire.adapter.ScrumQuestionsAdapter
 import com.example.scrumquestions.questionnaire.source.QuestionsSourceBehavior
 
 abstract class AbstractQuestionsFragment : Fragment(R.layout.fragment_scrum_dev_questions) {
 
     lateinit var questionsSourceBehavior: QuestionsSourceBehavior
 
-    val viewModel: QuestionsViewModel by activityViewModels()
-
-    val localAdapter = ScrumQuestionsAdapter(listOf())
+    val localAdapter =
+        ScrumQuestionsAdapter(
+            listOf()
+        )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,5 +39,7 @@ abstract class AbstractQuestionsFragment : Fragment(R.layout.fragment_scrum_dev_
         this.questionsSourceBehavior = questionsSourceBehavior
     }
 
-    fun getQuestionsData() = questionsSourceBehavior.getQuestions(requireContext())
+    fun getQuestionsData(){
+        questionsSourceBehavior.getQuestions(requireContext())
+    }
 }
