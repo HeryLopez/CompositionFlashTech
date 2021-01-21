@@ -8,15 +8,19 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.scrumquestions.R
+import com.example.scrumquestions.questionnaire.adapter.QuestionsAdapter
 import com.example.scrumquestions.questionnaire.source.QuestionsSourceBehavior
 
 abstract class AbstractQuestionsFragment : Fragment(R.layout.fragment_scrum_dev_questions) {
 
-    lateinit var questionsSourceBehavior: QuestionsSourceBehavior
+    private lateinit var questionsSourceBehavior: QuestionsSourceBehavior
 
     val viewModel: QuestionsViewModel by activityViewModels()
 
-    val localAdapter = ScrumQuestionsAdapter(listOf())
+    val localAdapter =
+        QuestionsAdapter(
+            listOf()
+        )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

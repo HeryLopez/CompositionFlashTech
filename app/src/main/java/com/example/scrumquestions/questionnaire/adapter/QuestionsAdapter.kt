@@ -1,4 +1,4 @@
-package com.example.scrumquestions.questionnaire
+package com.example.scrumquestions.questionnaire.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import android.widget.TextView
 import com.example.scrumquestions.R
 import com.example.scrumquestions.model.ScrumQuestion
 
-class ScrumQuestionsAdapter(private var values: List<ScrumQuestion>) :
-    RecyclerView.Adapter<ScrumQuestionsAdapter.ViewHolder>() {
+class QuestionsAdapter(private var values: List<ScrumQuestion>) :
+    RecyclerView.Adapter<QuestionsAdapter.ViewHolder>() {
 
     fun updateList(newValues: List<ScrumQuestion>){
         values = newValues
@@ -29,7 +29,9 @@ class ScrumQuestionsAdapter(private var values: List<ScrumQuestion>) :
         with(holder.answers) {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
             adapter =
-                ScrumAnswersAdapter(item.answers)
+                AnswersAdapter(
+                    item.answers
+                )
         }
 
         if(item.alreadyValidated){
@@ -38,7 +40,7 @@ class ScrumQuestionsAdapter(private var values: List<ScrumQuestion>) :
             holder.verifyButton.visibility = View.VISIBLE
             holder.verifyButton.setOnClickListener {
                 holder.answers.adapter.apply {
-                    this as ScrumAnswersAdapter
+                    this as AnswersAdapter
                     this.setShowCorrectAnswer(true)
                 }
                 item.alreadyValidated = true
